@@ -1,2 +1,2 @@
 # Codingame - Bot Programming
-##Code4life
+## CODE4LIFE

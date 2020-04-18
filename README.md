@@ -1,2 +1,2 @@
-# codingGame
-Coding Game
+# Codingame Bot Programming
+Code4life

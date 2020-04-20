@@ -54,5 +54,5 @@ In this part we didn't use the same strategy as we used for Scala language. Beca
 
 
 
-**Hint:** We implemented all thing together. 
+**Hint:** We used two different languages and different strategies in this assignment. We learned and implemented both of these languages together. At the same time, we thought and decided on these strategies together.
                   

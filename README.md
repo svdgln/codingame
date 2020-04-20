@@ -22,6 +22,7 @@ Then go to LABORATORY
 In this part we have extra module as SAMPLE which robots will collect samples from it instead of from DIAGNOSIS.So ,sample data could be diagnosed or undiagnosed. In addition, as an extra we have rank:1,2,3.The higher rank gets the higher health point.
 
 - **SAMPLES** : Here it connects undiagnosed samples with CONNECT rank. Strategy in here again is having sample gives most health.The higher rank the more health point you will get. 
+
 *Health points scored with a rank 1 sample = 1 or 10*
 
 *Health points scored with a rank 2 sample = 10, 20 or 30*
@@ -35,9 +36,9 @@ In this part we have extra module as SAMPLE which robots will collect samples fr
 *7≤ Total molecule cost for a rank 3 sample ≤14*
 
 But because we have constraint that at most 10 molecule we are able to carry, we can't choose rank 3 directly for our strategy.Also,Rank 1 is not enough to win the other robot.Because available molecules still unlimited in this section we can select rank 2 and win the game. 
-- **DIAGNOSIS** : 
-- **MOLECULES** : 
-- **LABORATORY** : 
+- **DIAGNOSIS** : It diagnoses every sample is given.
+- **MOLECULES** : Here is the strategy and implementation same with wood section.Getting molecules that needed from the chosen best sample.
+- **LABORATORY** : It takes molecules and sample then produce the medicine. Because we chose rank 2. we will get 10,20 or 30 health point and it is enough to win other robot.
 
 
 

@@ -52,8 +52,7 @@ In this part we didn't use the same strategy as we used for Scala language. Beca
 - **MOLECULES** : If the molecule we have is less than the cost, we have implemented it as Connect + molecule after that goes to Laborotary. Otherwise,  goes to Diagnosis. 
 - **LABORATORY** : If sample is not empty Connect robot's sample id otherwise goes to Diagnosis. 
 
-&nbsp;
-&nbsp;
-&nbsp;
+
+
 **Hint:** We implemented all thing together. 
                   

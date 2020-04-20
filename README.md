@@ -8,7 +8,7 @@ Written in both Scala and Rust Programming Languages.
 ## Strategies
 
 ### Scala Programming Language :
-**Wood***
+**Wood**
 
 Main strategy to win the other robot is finding the best sample according its health point. It searchs samples from the created samples array and compare their health point then selects a samples which has max health as a best sample.
 
@@ -17,7 +17,7 @@ Main strategy to win the other robot is finding the best sample according its he
 Then go to LABORATORY
 - **LABORATORY** : It takes molecules and sample then produce the medicine.Because we chosed the best sample, we get the highest health point and increase our score.
 
-### Wood to Bronze
+**Wood to Bronze**
 
 In this part we have extra module as SAMPLE which robots will collect samples from it instead of from DIAGNOSIS.So ,sample data could be diagnosed or undiagnosed. In addition, as an extra we have rank:1,2,3.The higher rank gets the higher health point.
 

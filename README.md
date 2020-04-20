@@ -45,7 +45,11 @@ But because we have constraint that at most 10 molecule we are able to carry, we
 ### Rust Programming Language :
 **Wood**
 
+In this part we didn't use the same strategy as we used for Scala language. Because the strategy we used before for selecting the best sample requires mutable assignments.However, Rust language is not enough convenient to implement this strategy we implement our code more functional where every function call another.
 
+- **DIAGNOSIS** : 
+- **MOLECULES** : 
+- **LABORATORY** :
 
 
 

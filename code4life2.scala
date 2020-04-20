@@ -7,14 +7,22 @@ import scala.collection.mutable.ArrayBuffer
 /**
  * Bring data on patient samples from the diagnosis machine to the laboratory with enough molecules to produce medicine!
  **/
- 
+
+ /*
+storage is number of molecules held by robot
+target is modul where the player is
+*/
 class robot(storage: Array[Int], target: String){
     val robot_storage = storage
     val robot_target = target
     var robot_carrying = ArrayBuffer[sample]()
     
 }
-
+/*
+sampleId is unique id for the sample
+carriedBy is 0 if you carry it,1 if other robot carries and -1 if nobody carries
+health is health point that make us gain from sample
+*/
 class sample(sampleId: Int, carriedBy: Int,health: Int,costs: Array[Int]) {
     val s_sampleId = sampleId
     val s_carriedBy = carriedBy
@@ -35,7 +43,7 @@ object Player extends App {
   // game loop
 
   while(true) {
-
+    // a mutable array holds 2 robot
     var robots = ArrayBuffer[robot]()  
     
     for(i <- 0 until 2) {
@@ -47,7 +55,8 @@ object Player extends App {
       val storageC = _storageC.toInt
       val storageD = _storageD.toInt
       val storageE = _storageE.toInt
-      
+     
+      //after robots created through loop, they are added to array
       var storage = Array(storageA, storageB, storageC,storageD,storageE)
       val robot = new robot(storage,target)
       robots.append(robot)
@@ -56,7 +65,7 @@ object Player extends App {
     val Array(availableA, availableB, availableC, availableD, availableE) = (readLine split " ").map (_.toInt)
     val sampleCount = readLine.toInt
     
-    
+    //a mutable array holds samples.(mutable array is used so that it can have elements changed, added to, or removed later)
     var samples = ArrayBuffer[sample]()  
    
     for(i <- 0 until sampleCount) {
@@ -71,6 +80,7 @@ object Player extends App {
       val costD = _costD.toInt
       val costE = _costE.toInt
       
+     //after samples created through loop, they are added to array
       var cost = Array(costA, costB, costC,costD,costE)
       val sample = new sample(sampleId,carriedBy,health,cost)
       samples.append(sample)
@@ -87,7 +97,8 @@ object Player extends App {
     
 
     val loop = new Breaks;
-    var molekule = ArrayBuffer[String]()
+   //number of molecules we can carry is limited by ten
+    var molekule = ArrayBuffer[String]() //array holds "ABCDE" molecules
     molekule += "A"
     molekule += "B"
     molekule += "C"
@@ -95,9 +106,9 @@ object Player extends App {
     molekule += "E"
     
     
-    
+    //The higher rank the more health point you will get.So rank 2 is selected.
     if(me.robot_carrying.isEmpty){
-        goConnect("SAMPLES",2,me.robot_target)
+        goConnect("SAMPLES",2,me.robot_target) // CONNECTs undiagnosed sample
     }
     else{
         val sample = me.robot_carrying(0)
@@ -109,27 +120,30 @@ object Player extends App {
                 neededMolecule = molekule(i)
                 loop.break;   
             }      
-            }
-            }
+         }
+      }
         
         if(neededMolecule!=null) {
-      goConnect2("MOLECULES",neededMolecule , me.robot_target)
+      goConnect2("MOLECULES",neededMolecule , me.robot_target) //take needed molecules 
      
         }
         else{
-      goConnect("LABORATORY",sample.s_sampleId, me.robot_target)
+      goConnect("LABORATORY",sample.s_sampleId, me.robot_target) //produce medicine
      
         }
         }
         else{
-           goConnect("DIAGNOSIS", sample.s_sampleId, me.robot_target)
+           goConnect("DIAGNOSIS", sample.s_sampleId, me.robot_target) //diagnose sample
             
         }
     }
       
 }
 
-
+ /* 
+  target is where we are, so if the module is same with target all we need to is CONNECT what we need with the id or rank .
+  otherwise we need to GOTO module.
+  */
   def goConnect(module:String, id:Int, target:String){
     if(module == target) {
       println("CONNECT " + id)
@@ -138,6 +152,10 @@ object Player extends App {
       println("GOTO " + module)
     }
   }
+ 
+/*
+  this function does the same action except it takes String as a id istead of integer. For command; example : CONNECT A
+ */
 
   def goConnect2(module:String, typeId:String, target:String){
     if(module == target) {
@@ -147,10 +165,6 @@ object Player extends App {
       println("GOTO " + module)
     }
   }
-
-
-
-
 
 
 }

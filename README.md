@@ -7,7 +7,7 @@ Written in both Scala and Rust Programming Languages.
 
 ## Strategies
 
-### Scala Programming Language** :
+### Scala Programming Language :
 **Wood***
 
 Main strategy to win the other robot is finding the best sample according its health point. It searchs samples from the created samples array and compare their health point then selects a samples which has max health as a best sample.
